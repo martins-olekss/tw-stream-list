@@ -1,0 +1,13 @@
+* { font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; font-size: 12px; color: #333;}
+body { background-color: #c0c8e7; }
+.footer { position: fixed; bottom: 0; left: 10px; margin-top: 30px; padding: 5px; color: #c0c0c0; }
+.wrapper { width: 530px; margin: 30px auto 0 auto;}
+.stream-item { display: inline-block; width: 100%; margin-bottom: 25px; box-sizing: border-box; }
+.stream-item.online { border-left: 2px solid #00ff5d; border-right: 2px solid #00ff5d; border-radius: 10px; }
+.logo img { width: 50px; height: 50px; border-radius: 50%; }
+.stream-item div.streamer { float: left; width: 120px; text-align: center; }
+.stream-item div.link a { text-decoration: none; color: #333; font-weight: bolder; }
+.stream-item div.title,
+.stream-item div.game { display: block; }
+.stream-item div.game { margin-top: 10px; }
+.stream-item div.view { color: #828282; }
