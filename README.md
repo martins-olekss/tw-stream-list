@@ -16,7 +16,7 @@ Personal Twitch streamer list using kraken API
 - Run php `cli.php add <username>` to add twitch streamer to your streamer list
 - Retrieve Twitch API id from twitch.tv and enter it in `Core/config.ini` file (if not done previously)
 - Run `php cli.php sync` to retrieve data from twitch.tv for your streamers
-- Execute p`hp cli.php help` for all available commands
+- Execute `php cli.php help` for all available commands
 
 **Intended everyday usage:**
 - Set cron / scheduler to execute `php cli.php sync` every few minutes
