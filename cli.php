@@ -42,9 +42,6 @@ if (isset($argv[0]) && $argv[0] === "cli.php" && !empty($argv[1])) {
 
     if ($cmd && $cmd == "view" && empty($username)) {
         echo "STREAMER LIST:" . PHP_EOL;
-
-        error_reporting(E_ALL);
-
         $db = new Core_Database();
         $streamer_data = $db->getStreamerData();
 
