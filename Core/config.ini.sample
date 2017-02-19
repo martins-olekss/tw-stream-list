@@ -1,0 +1,8 @@
+;Twitch.tv
+twitch_key=""
+
+;Database
+db_host=""
+db_user=""
+db_name=""
+db_password=""

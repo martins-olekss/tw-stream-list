@@ -15,10 +15,11 @@ if (isset($argv[0]) && $argv[0] === "cli.php" && !empty($argv[1])) {
     if ($cmd && $cmd == "help" && empty($username)) {
         echo PHP_EOL;
         echo "Commands:" . PHP_EOL;
-        echo "Create empty streamer data table if not already exists using {install}" . PHP_EOL;
-        echo "Add new streamer with {add} <username>" . PHP_EOL;
-        echo "To update streamer list use {sync}" . PHP_EOL;
-        echo "View streamer list withing terminal using {view}" . PHP_EOL;
+        echo "\tinstall\tCreate empty streamer data table if not already exists using {install}" . PHP_EOL;
+        echo "\tadd\tAdd new streamer with {add} <username>" . PHP_EOL;
+        echo "\tremove\tRemove existing streamer with {remove} <username>" . PHP_EOL;
+        echo "\tsync\tTo update streamer list use {sync}" . PHP_EOL;
+        echo "\tview\tView streamer list withing terminal using {view}" . PHP_EOL;
         echo PHP_EOL;
     }
 
@@ -26,6 +27,12 @@ if (isset($argv[0]) && $argv[0] === "cli.php" && !empty($argv[1])) {
         $db = new Core_Database();
         $db->addStreamer($username);
         echo "Adding new streamer " . $username . PHP_EOL;
+    }
+
+    if ($cmd && $cmd == "remove" && !empty($username)) {
+        $db = new Core_Database();
+        $db->removeStreamer($username);
+        echo "Removing streamer " . $username . PHP_EOL;
     }
 
     if ($cmd && $cmd == "sync" && empty($username)) {

@@ -3,8 +3,13 @@ error_reporting(E_ALL);
 
 require('Core/Autoload.php');
 spl_autoload_register('autoload');
+
+$config = new Core_Config();
+$configValues = $config->getConfig();
+
 $db = new Core_Database();
 $streamer_data = $db->getStreamerData();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +29,13 @@ $streamer_data = $db->getStreamerData();
                             <img src="<?php echo (!is_null($item['logo'])) ? $item['logo'] : "img/blank.png" ?>" />
                         </a>
                     </div>
-                    <div class="link"><div class="link"><a href="<?php echo "https://www.twitch.tv/".$item['twitch_name'] ?>"><?php echo $item['twitch_name'] ?></a></div></div>
+                    <div class="link">
+                        <div class="link">
+                            <a href="<?php echo "https://www.twitch.tv/".$item['twitch_name'] ?>">
+                                <?php echo $item['twitch_name'] ?>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="game"><span><?php echo $item['game'] ?></span></div>
                 <div class="title"><?php echo $item['title'] ?></div>

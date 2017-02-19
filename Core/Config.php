@@ -2,7 +2,7 @@
 
 class Core_Config {
 
-    public $config_path;
+    public $configPath;
     public $config;
 
     public function __construct()

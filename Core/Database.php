@@ -75,6 +75,14 @@ class Core_Database{
         return true;
     }
 
+    public function removeStreamer($username) {
+        $sql = "DELETE FROM streams
+                WHERE twitch_name=?";
+        $q = $this->conn->prepare($sql);
+        $q->execute(array($username));
+        return true;
+    }
+
     /**
      * Create main table for streamer data
      *
