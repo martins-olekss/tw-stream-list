@@ -9,6 +9,10 @@ $date = date('Y-m-d h:i:s');
 
 $db = new Core_Database();
 
+/**
+ * @param $channelName
+ * @return array
+ */
 function getStatusTwitch($channelName)
 {
     $config = new Core_Config();
@@ -20,7 +24,6 @@ function getStatusTwitch($channelName)
     $json_array = json_decode(file_get_contents($apiUrl.strtolower($channelName).'?client_id='.$clientId), true);
 
     if ($json_array['stream'] != NULL) {
-        //echo 'Name('.$channelName.') Game('.$json_array['stream']['channel']['game'].') Title('.$json_array['stream']['channel']['status'].')<br>';
         return $data = array(
             'status'=>'1',
             'display_name'=>$channelName,
@@ -41,6 +44,9 @@ function getStatusTwitch($channelName)
     }
 }
 
+/**
+ * @param $db
+ */
 function syncStreamerStatus($db) {
 
     foreach (array_unique($db->getNames()) as $name)

@@ -11,6 +11,9 @@ class Core_Config {
         $this->config = parse_ini_file($this->configPath, true);
     }
 
+    /**
+     * @return array
+     */
     public function getConfig() {
         return $this->config;
     }

@@ -19,6 +19,15 @@ class Core_Database{
         $this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
     }
 
+    /**
+     * @param $twitch_name
+     * @param $status
+     * @param $game
+     * @param $title
+     * @param $logo
+     * @param $viewers
+     * @return bool
+     */
     public function updateStatus($twitch_name,$status,$game,$title,$logo,$viewers){
 
         $sql = "UPDATE streams
@@ -36,6 +45,9 @@ class Core_Database{
         return true;
     }
 
+    /**
+     * @return array
+     */
     public function getStreamerData(){
         $data = array();
         $sql="SELECT * FROM streams ORDER BY status DESC, twitch_name ASC";
@@ -46,6 +58,9 @@ class Core_Database{
         return $data;
     }
 
+    /**
+     * @return array
+     */
     public function getNames(){
         $data = array();
         $sql="SELECT twitch_name FROM streams";
@@ -56,6 +71,10 @@ class Core_Database{
         return $data;
     }
 
+    /**
+     * @param $name
+     * @return array|mixed
+     */
     public function dataByName($name){
         $data = array();
         $sql="SELECT title, status, game, logo, viewers FROM streams WHERE twitch_name='{$name}' LIMIT 1";
@@ -66,6 +85,10 @@ class Core_Database{
         return $data;
     }
 
+    /**
+     * @param $username
+     * @return bool
+     */
     public function addStreamer($username) {
         $sql = "INSERT INTO streams
                 (twitch_name, status)
@@ -75,6 +98,10 @@ class Core_Database{
         return true;
     }
 
+    /**
+     * @param $username
+     * @return bool
+     */
     public function removeStreamer($username) {
         $sql = "DELETE FROM streams
                 WHERE twitch_name=?";
